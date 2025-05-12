@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apex Coaching Classes</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Swiper.js for Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    :root {
+      --primary: #004aad;
+      --bg: #f5f7fa;
+      --text: #222;
+      --radius: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+body {
+  background: url('https://www.transparenttextures.com/patterns/cubes.png'), linear-gradient(to bottom right, #f5f7fa, #e3ecf8);
+  background-repeat: repeat;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+header {
+  background: linear-gradient(135deg, #004aad, #0077ff);
+  color: white;
+  padding: 80px 20px 100px;
+  text-align: center;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      color: var(--primary);
+    }
+
+    .about, .testimonials, .contact {
+      text-align: center;
+    }
+
+    .subjects ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+    }
+
+    .subjects li {
+      background: white;
+      padding: 15px 25px;
+      border-radius: var(--radius);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      font-weight: 600;
+    }
+
+    .schedule table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .schedule th, .schedule td {
+      padding: 15px;
+      text-align: center;
+      border-bottom: 1px solid #eee;
+    }
+
+    .schedule th {
+      background: #e0ebff;
+      color: var(--primary);
+    }
+
+    .quote {
+      background: white;
+      padding: 25px;
+      margin: 15px auto;
+      border-left: 5px solid var(--primary);
+      border-radius: var(--radius);
+      max-width: 700px;
+    }
+
+    /* Contact form */
+    .contact form {
+      display: grid;
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+
+    .contact input,
+    .contact textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: var(--radius);
+      font-size: 1rem;
+    }
+
+    .contact button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: var(--radius);
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    /* Carousel */
+    .swiper {
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius);
+      margin: auto;
+    }
+
+    .swiper-slide {
+      text-align: center;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      border-radius: var(--radius);
+      height: auto;
+    }
+
+footer {
+  background: linear-gradient(to right, #002b66, #0051cc);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 50px;
+  font-size: 0.9rem;
+}
+
+
+    /* Floating contact buttons */
+    .floating-buttons {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .floating-buttons a {
+      background: #25d366;
+      color: white;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent */
+  backdrop-filter: blur(12px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.navbar-brand {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.navbar-toggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: rgb(39, 39, 39);
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.navbar-links li a {
+  color: rgb(14, 14, 14);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-links li a:hover {
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #222;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 15px 20px;
+  }
+
+  .navbar-links.show {
+    display: flex;
+  }
+
+  .navbar-links li {
+    margin-bottom: 10px;
+  }
+}
+
+
+    .floating-buttons a.instagram {
+      background: #e1306c;
+    }
+
+    .floating-buttons a:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="navbar-brand">Apex Coaching Classes</div>
+  <button class="navbar-toggle" onclick="toggleMenu()">☰</button>
+  <ul class="navbar-links" id="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#subjects">Subjects</a></li>
+    <li><a href="#carousel">Gallery</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+    <!-- Toast UI Element -->
+<div class="toast">🎓 Welcome to Our Academy!</div>
+
+<style>
+  .toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #222;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+</style>
+
+<script>
+  window.addEventListener('load', () => {
+    const toast = document.querySelector('.toast');
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3500);
+  });
+</script>
+
+  <header>
+    
+    <h1> <i class="fas fa-graduation-cap"></i> Apex Coaching Classes</h1>
+    <p>Master your subjects. Unlock your potential.</p>
+  </header>
+
+
+
+<section class="about" id="home">
+  <h2>Why Choose <span style="color:#004aad;">Apex Coaching Classes</span>?</h2>
+  <p>
+    <strong>Apex Coaching Classes</strong> is where <em>top-tier academics</em> meet <strong>personalized mentorship</strong>. 
+    We don’t just teach — <em>we empower students to think critically, solve problems, and dominate exams</em>. 
+    With <strong>small, focused batches</strong>, <span style="color:#004aad;"><strong>weekly performance tracking</strong></span>, 
+    <em>in-depth doubt sessions</em>, and <strong>direct parent feedback</strong>, we make sure each student isn’t just keeping up — 
+    <span style="color:green;"><strong>they’re staying ahead</strong></span>.
+  </p>
+</section>
+
+
+  <section class="subjects" id="subjects">
+    <h2>Subjects We Teach</h2>
+<ul>
+  <li><i class="fas fa-square-root-alt"></i> Mathematics</li>
+  <li><i class="fas fa-atom"></i> Physics</li>
+  <li><i class="fas fa-vial"></i> Chemistry</li>
+  <li><i class="fas fa-dna"></i> Biology</li>
+  <li><i class="fas fa-book-open"></i> English</li>
+  <li><i class="fas fa-landmark"></i> Social Science</li>
+  <li><i class="fas fa-language"></i> Marathi</li>
+</ul>
+
+      <section class="carousel" id="carousel">
+    <h2>Our Classroom & Events</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+<div class="swiper-slide">
+  <p>Our beautiful classroom setup</p>
+  <img src="https://picsum.photos/900/500?random=4" alt="Classroom 1">
+
+</div>
+<div class="swiper-slide">
+  <p>Projects</p>
+  <img src="https://picsum.photos/900/500?random=2" alt="Workshop 2">
+
+</div>
+<div class="swiper-slide">
+  <p>Success Boards</p>
+  <img src="https://picsum.photos/900/500?random=3" alt="Student Success">
+</div>
+
+      </div>
+      <!-- Pagination and nav -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  
+  </section>
+
+  <section class="schedule" id="schedule">
+    <h2>Timings</h2>
+    <table>
+      <tr>
+        <th>Days</th>
+        <th>Time</th>
+        <th>Classes</th>
+      </tr>
+      <tr>
+        <td>Mon–Fri</td>
+        <td>4:00 – 8:00 PM</td>
+        <td>6th to 10th</td>
+      </tr>
+      <tr>
+        <td>Sat–Sun</td>
+        <td>9:00 AM – 1:00 PM</td>
+        <td>11th & 12th (Science)</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="improvements" id="improvements">
+  <h2 style="text-align:center; color:#004aad;">How we <span style="color:green;">Improve</span></h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+    
+    <div style="flex: 1; min-width: 250px; background:#fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+      <h3 style="color: #d00000;">Before Apex</h3>
+      <ul style="list-style: none; padding-left: 0; margin-top: 15px; line-height: 1.8;">
+        <li>❌ Low conceptual clarity</li>
+        <li>❌ Poor time management</li>
+        <li>❌ Weak exam strategy</li>
+        <li>❌ Lack of motivation</li>
+        <li>❌ Irregular practice</li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 250px; background:#fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+      <h3 style="color: #009b00;">After Apex</h3>
+      <ul style="list-style: none; padding-left: 0; margin-top: 15px; line-height: 1.8;">
+        <li>✅ Strong fundamentals & clarity</li>
+        <li>✅ Improved focus & time use</li>
+        <li>✅ Exam-smart strategies</li>
+        <li>✅ Boosted confidence & discipline</li>
+        <li>✅ Regular tests and feedback</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <section class="improvements">
+  <h2 style="text-align:center; color:#004aad;">Student Progress: <span style="color:green;">Before & After</span></h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 40px;">
+    
+    <div style="flex: 1; min-width: 280px; background:#fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+      <h3 style="color: #d00000;">Before Apex</h3>
+      <ul style="list-style: none; padding-left: 0; margin-top: 15px; line-height: 1.8;">
+        <li>📉 <strong>Riya</strong> - 52% in Maths</li>
+        <li>📉 <strong>Arjun</strong> - 60% overall</li>
+        <li>📉 <strong>Fatima</strong> - Struggling in Physics (Grade D)</li>
+        <li>📉 <strong>Dev</strong> - Failing internal tests</li>
+        <li>📉 <strong>Sneha</strong> - 58% average</li>
+      </ul>
+    </div>
+
+    <div style="flex: 1; min-width: 280px; background:#fff; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+      <h3 style="color: #009b00;">After Apex</h3>
+      <ul style="list-style: none; padding-left: 0; margin-top: 15px; line-height: 1.8;">
+        <li>📈 <strong>Riya</strong> - Jumped to 87% in Maths</li>
+        <li>📈 <strong>Arjun</strong> - Now scoring 91% overall</li>
+        <li>📈 <strong>Fatima</strong> - Upgraded to Grade A in Physics</li>
+        <li>📈 <strong>Dev</strong> - Now passing with 78% avg.</li>
+        <li>📈 <strong>Sneha</strong> - Reached 85% avg. in finals</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+</section>
+
+  <section class="testimonials">
+    <h2>What People Say</h2>
+    <div class="quote">
+      <i class="fas fa-quote-left"></i> The best tuition my child has ever attended. Regular tests and doubt sessions helped a lot.
+    </div>
+    <div class="quote">
+      <i class="fas fa-quote-left"></i> Clear improvement in grades. Very organized and teacher is very supportive.
+    </div>
+  </section>
+
+<section class="location-support" style="background-color: #ffffff; padding: 60px 20px; text-align: center;" id="contact">
+  <h2 style="color:#004aad;">Visit Us or Get Help</h2>
+  <p style="font-size: 16px; max-width: 700px; margin: 20px auto;">
+    Come by our center for a free counseling session or reach out anytime for academic support. We’re always happy to guide students and parents.
+  </p>
+
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 40px; margin-top: 40px;">
+
+    <div style="min-width: 250px;">
+      <h4 style="color:#333;">📍 Our Address</h4>
+      <p>1st Floor, ABC Complex,<br>Near XYZ School, YourCity - 123456</p>
+    </div>
+
+    <div style="min-width: 250px;">
+      <h4 style="color:#333;">🕑 Timings</h4>
+      <p>Mon - Sat: 9 AM – 7 PM<br>Sun: Closed</p>
+    </div>
+
+    <div style="min-width: 250px;">
+      <h4 style="color:#333;">📧 Email Us</h4>
+      <p><a href="mailto:apexclasses@email.com" style="color:#004aad; text-decoration: none;">apexclasses@email.com</a></p>
+    </div>
+
+  </div>
+</section>
+
+
+  <footer>
+    &copy; 2025 Excel Tuition Classes. All rights reserved.
+  </footer>
+
+  <!-- Floating buttons -->
+<div class="floating-buttons">
+  <a href="https://wa.me/919999999999" target="_blank" title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <a href="https://www.instagram.com/apexcoachingclass/" target="_blank" class="instagram" title="Follow us on Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://facebook.com/yourfacebook" target="_blank" class="facebook" title="Like us on Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+  <a href="tel:+919999999999" class="phone" title="Call Us">
+    <i class="fas fa-phone"></i>
+  </a>
+</div>
+
+
+  
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      autoplay: {
+        delay: 3000,
+      },
+    });
+  </script>
+  <script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    nav.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
